@@ -1,8 +1,6 @@
+// core/routes/page_transitions.dart
 import 'package:flutter/material.dart';
 
-/// go_router-in CustomTransitionPage-i üçün ortaq keçid animasiyası:
-/// aşağıdan yuxarı sürüşmə + fade. Bütün route-larda eyni hiss üçün
-/// tək yerdə saxlanılır.
 Widget buildSmoothTransition(
   BuildContext context,
   Animation<double> animation,

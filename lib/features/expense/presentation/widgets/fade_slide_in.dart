@@ -1,7 +1,6 @@
+// features/expense/presentation/widgets/fade_slide_in.dart
 import 'package:flutter/material.dart';
 
-/// Hər dəfə [visibleExpenses] dəyişəndə (əlavə/sil/filtr) siyahı yenidən
-/// qurulur — bu wrapper həmin anda hər sətrin yumşaq görünməsini təmin edir.
 class FadeSlideIn extends StatelessWidget {
   final Widget child;
   final int index;

@@ -112,18 +112,5 @@ Hər feature daxilində:
 - Async gap qoruması: `showDatePicker` və verilənlər bazası çağırışlarından
   sonra `BuildContext` istifadəsindən əvvəl `mounted`/state yoxlaması edilib.
 
-## Əskik olan / qərar tələb edən məqamlar
 
-1. **AppColor sinfi sıfırdan yaradılıb** — dəqiq brend/dizayn-sistem hex
-   kodları verilmədiyi üçün Material indigo əsaslı defolt palitra seçilib.
-2. Route arqumentlərində tip-safe generasiya (`go_router_builder`/code-gen)
-   istifadə olunmayıb — `Expense` obyekti sadəcə `extra` parametri kimi
-   ötürülür (path parametrləri/deep-link dəstəyi yoxdur).
-3. Kateqoriya üzrə fərqli rəng/ikon sxemi tələb olunmadığı üçün sadə
-   hərf-avatar (`CircleAvatar` + ilk hərf) saxlanılıb.
-4. Real backend/API inteqrasiyası yoxdur — bütün data `GetStorage` ilə
-   yalnız lokal saxlanılır.
-5. Silmə təsdiq dialoqunun (`AlertDialog`) ekran görüntüsü fayl olaraq
-   göndərilmədiyi üçün README-də yoxdur — istəsən `screenshots/` qovluğuna
-   əlavə edib cədvələ yeni sətir kimi qoşa bilərsən.
 # Dev-Project-2

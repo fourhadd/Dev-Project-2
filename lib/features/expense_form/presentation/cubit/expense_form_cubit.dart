@@ -1,3 +1,4 @@
+// features/expense_form/presentation/cubit/expense_form_cubit.dart
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,8 +8,6 @@ import '../../expense/data/models/expense_model.dart';
 
 part 'expense_form_state.dart';
 
-/// Page StatelessWidget olduğu üçün TextEditingController-lər burada,
-/// Cubit daxilində saxlanılır (state deyil, adi field kimi).
 class ExpenseFormCubit extends Cubit<ExpenseFormState> {
   final ExpenseCubit _expenseCubit;
   final Expense? existing;
@@ -20,14 +19,17 @@ class ExpenseFormCubit extends Cubit<ExpenseFormState> {
   bool get isEditing => existing != null;
 
   ExpenseFormCubit({required ExpenseCubit expenseCubit, this.existing})
-      : _expenseCubit = expenseCubit,
-        super(ExpenseFormState(
+    : _expenseCubit = expenseCubit,
+      super(
+        ExpenseFormState(
           category: existing?.category ?? ExpenseCategory.other,
           date: existing?.date ?? DateTime.now(),
-        )) {
+        ),
+      ) {
     titleController = TextEditingController(text: existing?.title ?? '');
-    amountController =
-        TextEditingController(text: existing != null ? existing!.amount.toString() : '');
+    amountController = TextEditingController(
+      text: existing != null ? existing!.amount.toString() : '',
+    );
     noteController = TextEditingController(text: existing?.note ?? '');
   }
 
@@ -58,26 +60,36 @@ class ExpenseFormCubit extends Cubit<ExpenseFormState> {
     }
 
     if (titleError != null || amountError != null) {
-      emit(state.copyWith(
-        titleError: titleError,
-        clearTitleError: titleError == null,
-        amountError: amountError,
-        clearAmountError: amountError == null,
-      ));
+      emit(
+        state.copyWith(
+          titleError: titleError,
+          clearTitleError: titleError == null,
+          amountError: amountError,
+          clearAmountError: amountError == null,
+        ),
+      );
       return;
     }
 
-    emit(state.copyWith(isSubmitting: true, clearTitleError: true, clearAmountError: true));
+    emit(
+      state.copyWith(
+        isSubmitting: true,
+        clearTitleError: true,
+        clearAmountError: true,
+      ),
+    );
 
     final note = noteController.text.trim();
     if (isEditing) {
-      await _expenseCubit.updateExpense(existing!.copyWith(
-        title: title,
-        amount: amount,
-        category: state.category,
-        date: state.date,
-        note: note.isEmpty ? null : note,
-      ));
+      await _expenseCubit.updateExpense(
+        existing!.copyWith(
+          title: title,
+          amount: amount,
+          category: state.category,
+          date: state.date,
+          note: note.isEmpty ? null : note,
+        ),
+      );
     } else {
       await _expenseCubit.addExpense(
         title: title,

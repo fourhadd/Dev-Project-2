@@ -1,3 +1,4 @@
+// core/routes/app_router.dart
 import 'package:go_router/go_router.dart';
 
 import '../../features/expense/data/models/expense_model.dart';
@@ -6,8 +7,6 @@ import '../../features/expense_form/presentation/pages/expense_form_page.dart';
 import 'app_routes.dart';
 import 'page_transitions.dart';
 
-/// Tətbiqin bütün naviqasiyası bu router üzərindən idarə olunur.
-/// Redaktə ediləcək `Expense` `extra` parametri kimi ötürülür.
 final GoRouter appRouter = GoRouter(
   initialLocation: AppRoutes.home,
   routes: [

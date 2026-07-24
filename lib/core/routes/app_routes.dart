@@ -1,5 +1,5 @@
-/// Bütün route adları və path-ləri tək yerdə — hardcoded string-lərin
-/// kodda təkrarlanmasının qarşısını alır.
+// core/routes/app_routes.dart
+
 class AppRoutes {
   AppRoutes._();
 

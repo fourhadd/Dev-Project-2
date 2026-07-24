@@ -1,3 +1,4 @@
+// features/expense_form/presentation/widgets/note_field.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,8 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../cubit/expense_form_cubit.dart';
 
-/// Validasiya olunmadığı (istəyə bağlı sahə) və heç bir state-dən asılı
-/// olmadığı üçün bloc-a bağlanmır — yalnız controller-i oxuyur.
 class NoteField extends StatelessWidget {
   const NoteField({super.key});
 

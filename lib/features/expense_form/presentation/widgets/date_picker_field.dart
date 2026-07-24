@@ -1,3 +1,4 @@
+// features/expense_form/presentation/widgets/date_picker_field.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,8 +17,7 @@ class DatePickerField extends StatelessWidget {
       firstDate: DateTime(2020),
       lastDate: DateTime(2100),
     );
-    // Async gap qoruması: dialoqdan sonra context əvəzinə birbaşa cubit-ə yazırıq,
-    // BuildContext-dən asılı heç nə istifadə olunmur.
+
     if (picked != null) {
       cubit.changeDate(picked);
     }
@@ -30,12 +30,19 @@ class DatePickerField extends StatelessWidget {
       builder: (context, state) {
         return ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text('Tarix', style: TextStyle(fontSize: 14.sp, color: AppColor.textPrimary)),
+          title: Text(
+            'Tarix',
+            style: TextStyle(fontSize: 14.sp, color: AppColor.textPrimary),
+          ),
           subtitle: Text(
             '${state.date.day}.${state.date.month}.${state.date.year}',
             style: TextStyle(fontSize: 13.sp, color: AppColor.textSecondary),
           ),
-          trailing: Icon(Icons.calendar_today, size: 20.r, color: AppColor.primary),
+          trailing: Icon(
+            Icons.calendar_today,
+            size: 20.r,
+            color: AppColor.primary,
+          ),
           onTap: () => _pickDate(context, state.date),
         );
       },

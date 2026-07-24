@@ -1,8 +1,6 @@
+// core/theme/app_colors.dart
 import 'package:flutter/material.dart';
 
-/// Bütün layihə boyu istifadə olunan rənglər.
-/// Qeyd: bu fayl sıfırdan yaradılıb — əvvəllər mövcud AppColor olmadığı üçün
-/// bütün dəyərlər yeni əlavə edilib (aşağıda "Əskik olanlar" bölməsinə bax).
 class AppColor {
   AppColor._();
 
