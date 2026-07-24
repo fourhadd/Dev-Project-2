@@ -6,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'core/routes/app_router.dart';
 import 'core/theme/app_colors.dart';
-import 'features/expense/cubit/expense_cubit.dart';
+import 'package:expense_tracker/features/expense/presentation/cubit/expense_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

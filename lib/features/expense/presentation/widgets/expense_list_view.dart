@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cubit/expense_cubit.dart';
+import 'package:expense_tracker/features/expense/presentation/cubit/expense_cubit.dart';
 import 'empty_state_view.dart';
 import 'expense_tile.dart';
 import 'fade_slide_in.dart';

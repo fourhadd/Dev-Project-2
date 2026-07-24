@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../expense/cubit/expense_cubit.dart';
-import '../../expense/data/models/expense_model.dart';
+import 'package:expense_tracker/features/expense/presentation/cubit/expense_cubit.dart';
+import '../../../expense/data/models/expense_model.dart';
 
 part 'expense_form_state.dart';
 

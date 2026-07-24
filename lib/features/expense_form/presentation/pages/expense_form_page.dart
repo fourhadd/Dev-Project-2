@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../../expense/cubit/expense_cubit.dart';
+import 'package:expense_tracker/features/expense/presentation/cubit/expense_cubit.dart';
 import '../../../expense/data/models/expense_model.dart';
-import '../../cubit/expense_form_cubit.dart';
+import 'package:expense_tracker/features/expense_form/presentation/cubit/expense_form_cubit.dart';
 import '../widgets/amount_field.dart';
 import '../widgets/category_dropdown_field.dart';
 import '../widgets/date_picker_field.dart';

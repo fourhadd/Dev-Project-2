@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:uuid/uuid.dart';
 
-import '../data/models/expense_model.dart';
+import '../../data/models/expense_model.dart';
 
 part 'expense_state.dart';
 

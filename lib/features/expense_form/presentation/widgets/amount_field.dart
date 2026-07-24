@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../cubit/expense_form_cubit.dart';
+import 'package:expense_tracker/features/expense_form/presentation/cubit/expense_form_cubit.dart';
 
 class AmountField extends StatelessWidget {
   const AmountField({super.key});

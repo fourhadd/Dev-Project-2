@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../cubit/expense_cubit.dart';
+import 'package:expense_tracker/features/expense/presentation/cubit/expense_cubit.dart';
 import '../../data/models/expense_model.dart';
 import 'delete_confirm_dialog.dart';
 

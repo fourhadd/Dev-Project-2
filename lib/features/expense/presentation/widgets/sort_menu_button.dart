@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../cubit/expense_cubit.dart';
+import 'package:expense_tracker/features/expense/presentation/cubit/expense_cubit.dart';
 import '../../data/models/expense_model.dart';
 
 class SortMenuButton extends StatelessWidget {
