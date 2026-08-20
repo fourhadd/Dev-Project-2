@@ -5,12 +5,14 @@ class ExpenseState extends Equatable {
   final ExpenseCategory? filterCategory;
   final SortType sortType;
   final bool isLoading;
+  final int skippedCount;
 
   const ExpenseState({
     this.allExpenses = const [],
     this.filterCategory,
     this.sortType = SortType.dateDesc,
     this.isLoading = true,
+    this.skippedCount = 0,
   });
 
   List<Expense> get visibleExpenses {
@@ -44,15 +46,17 @@ class ExpenseState extends Equatable {
     bool clearFilter = false,
     SortType? sortType,
     bool? isLoading,
+    int? skippedCount,
   }) {
     return ExpenseState(
       allExpenses: allExpenses ?? this.allExpenses,
       filterCategory: clearFilter ? null : (filterCategory ?? this.filterCategory),
       sortType: sortType ?? this.sortType,
       isLoading: isLoading ?? this.isLoading,
+      skippedCount: skippedCount ?? this.skippedCount,
     );
   }
 
   @override
-  List<Object?> get props => [allExpenses, filterCategory, sortType, isLoading];
+  List<Object?> get props => [allExpenses, filterCategory, sortType, isLoading, skippedCount];
 }

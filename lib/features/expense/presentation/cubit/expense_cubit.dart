@@ -1,4 +1,6 @@
+// features/expense/presentation/cubit/expense_cubit.dart
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:uuid/uuid.dart';
@@ -18,11 +20,38 @@ class ExpenseCubit extends Cubit<ExpenseState> {
 
   Future<void> _loadExpenses() async {
     emit(state.copyWith(isLoading: true));
-    final raw = _box.read<List>(_storageKey) ?? [];
-    final expenses = raw
-        .map((e) => Expense.fromMap(Map<String, dynamic>.from(e as Map)))
-        .toList();
-    emit(state.copyWith(allExpenses: expenses, isLoading: false));
+
+    List<Expense> expenses = [];
+    int skipped = 0;
+    try {
+      final raw = _box.read<List>(_storageKey) ?? [];
+      final parsed = <Expense>[];
+
+      for (final e in raw) {
+        try {
+          parsed.add(Expense.fromMap(Map<String, dynamic>.from(e as Map)));
+        } catch (err) {
+          debugPrint('ExpenseCubit: skipped corrupted expense entry: $err');
+          skipped++;
+        }
+      }
+      expenses = parsed;
+    } catch (err) {
+      debugPrint('ExpenseCubit: failed to read expenses storage: $err');
+      expenses = [];
+    }
+
+    emit(state.copyWith(
+      allExpenses: expenses,
+      isLoading: false,
+      skippedCount: skipped,
+    ));
+  }
+
+  void acknowledgeSkippedEntries() {
+    if (state.skippedCount != 0) {
+      emit(state.copyWith(skippedCount: 0));
+    }
   }
 
   Future<void> _persist(List<Expense> expenses) async {
